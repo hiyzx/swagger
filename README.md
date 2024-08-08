@@ -28,7 +28,7 @@ Swagger围绕着OpenAPI规范，提供了一套设计、构建、文档化rest a
 
 ```xml
 <dependency>
-     <groupId>com.muchcloud.swagger</groupId>
+     <groupId>org.zero.swagger</groupId>
      <artifactId>swagger-ext</artifactId>
      <version>1.0-SNAPSHOT</version>
 </dependency>
