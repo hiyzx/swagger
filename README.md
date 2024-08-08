@@ -18,7 +18,7 @@ Swagger围绕着OpenAPI规范，提供了一套设计、构建、文档化rest a
 ### 解决
 
 通过swagger将定时任务映射出来，像测试http接口一样来测试定时任务，就可以很方便的进行本地测试。
-![image](doc/image/image.png)
+![image](doc/image/xxl-job.png)
 
 ## 如何使用
 
