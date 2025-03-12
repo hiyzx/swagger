@@ -13,8 +13,11 @@ import io.swagger.models.parameters.Parameter;
 import io.swagger.util.BaseReaderUtils;
 import io.swagger.util.PathUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.event.EventListener;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.transaction.event.TransactionalEventListener;
+import org.springframework.web.bind.annotation.*;
+import org.zero.swagger.doc.annotation.SwaggerTestService;
 
 import java.lang.reflect.Method;
 import java.util.*;
@@ -64,7 +67,14 @@ public class Reader {
             if (method.isAnnotationPresent(KafkaListener.class)) {
                 filterMethods.put(method, getRefMethod(context, method));
             }
-            if (method.isAnnotationPresent(RequestMapping.class)) {
+            if (method.isAnnotationPresent(SwaggerTestService.class)) {
+                filterMethods.put(method, getRefMethod(context, method));
+            }
+            if (method.isAnnotationPresent(RequestMapping.class) || method.isAnnotationPresent(GetMapping.class)
+                    || method.isAnnotationPresent(PostMapping.class) || method.isAnnotationPresent(PutMapping.class) || method.isAnnotationPresent(DeleteMapping.class)) {
+                filterMethods.put(method, getRefMethod(context, method));
+            }
+            if (method.isAnnotationPresent(EventListener.class) || method.isAnnotationPresent(TransactionalEventListener.class)) {
                 filterMethods.put(method, getRefMethod(context, method));
             }
         }
@@ -77,7 +87,7 @@ public class Reader {
             String operationPath = null;
             String httpMethod = null;
 
-            ReaderExtension extension = new XxlReaderExtension();
+            ReaderExtension extension = new SwaggerReaderExtension();
             if (operationPath == null) {
                 operationPath = extension.getPath(context, method);
             }

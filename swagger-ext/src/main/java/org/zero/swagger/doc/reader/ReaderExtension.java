@@ -159,7 +159,7 @@ public interface ReaderExtension {
      */
     void applyExtensions(ReaderContext context, Operation operation, Method method);
 
-	void applyParameters(ReaderContext context, Operation operation, Method method,
+    void applyParameters(ReaderContext context, Operation operation, Method method,
                          Method interfaceMethod);
 
 }

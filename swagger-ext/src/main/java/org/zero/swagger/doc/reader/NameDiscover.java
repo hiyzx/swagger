@@ -15,6 +15,8 @@ public final class NameDiscover {
                 .addDiscoverer(new LocalVariableTableParameterNameDiscoverer());
         ((PrioritizedParameterNameDiscoverer) parameterNameDiscover)
                 .addDiscoverer(new StandardReflectionParameterNameDiscoverer());
+        ((PrioritizedParameterNameDiscoverer) parameterNameDiscover)
+                .addDiscoverer(new RequestParameterNameDiscoverer());
     }
 
 }
