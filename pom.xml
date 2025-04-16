@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>swagger-ext</module>
+        <module>swagger-demo</module>
     </modules>
 
     <properties>

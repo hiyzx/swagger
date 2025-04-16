@@ -46,7 +46,7 @@ Swagger围绕着OpenAPI规范，提供了一套设计、构建、文档化rest a
 
 ```properties
 # 是否开启swagger
-swagger.enabled: true
+swagger.enabled=true
 ```
 
 ### 使用
@@ -55,10 +55,22 @@ swagger.enabled: true
 
 将我们在xxl-job-admin上配置的参数放在requestBody，发送请求就可以。
 
-![xxl-job](doc/image/xxl-job.png)
+![xxl-job](doc/image/xxl-job.jpg)
 
 #### kafka消费者
 
 将消息体放在requestBody，发送请求就可以。
 
-![kafka](doc/image/kafka.png)
+![kafka](doc/image/kafka.jpg)
+
+#### spring事件
+
+事件内容放在requestBody就可以
+
+![kafka](doc/image/spring事件.jpg)
+
+#### 任意bean的方法
+
+这里注意: 如果是方法请求参数有对象的话, 对象参数一定要放在最后一个.
+
+![kafka](doc/image/custom.jpg)

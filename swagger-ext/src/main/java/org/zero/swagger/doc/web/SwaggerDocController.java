@@ -33,7 +33,7 @@ public class SwaggerDocController {
 
     private static final String HAL_MEDIA_TYPE = "application/hal+json";
 
-    @Value("${swagger.enabled}")
+    @Value("${swagger.enabled:false}")
     private boolean enabled;
 
     @Resource
@@ -70,28 +70,28 @@ public class SwaggerDocController {
             produces = {"application/json; charset=utf-8", HAL_MEDIA_TYPE})
     @ApiOperation("获取feign swagger数据")
     public ResponseEntity<Json> getFeignSwagger() throws JsonProcessingException {
-        return getApiList(swaggerDocCache.getKafkaSwagger(), feignServiceManager.getClasses(), DocTypeEnum.FEIGN);
+        return getApiList(swaggerDocCache.getFeignSwagger(), feignServiceManager.getClasses(), DocTypeEnum.FEIGN);
     }
 
     @GetMapping(value = "/custom/resources",
             produces = {"application/json; charset=utf-8", HAL_MEDIA_TYPE})
     @ApiOperation("获取custom swagger数据")
     public ResponseEntity<Json> getCustomSwagger() throws JsonProcessingException {
-        return getApiList(swaggerDocCache.getKafkaSwagger(), customServiceManager.getClasses(), DocTypeEnum.CUSTOM);
+        return getApiList(swaggerDocCache.getCustomSwagger(), customServiceManager.getClasses(), DocTypeEnum.CUSTOM);
     }
 
     @GetMapping(value = "/custom-token/resources",
             produces = {"application/json; charset=utf-8", HAL_MEDIA_TYPE})
     @ApiOperation("获取custom-token swagger数据")
     public ResponseEntity<Json> getCustomTokenSwagger() throws JsonProcessingException {
-        return getApiList(swaggerDocCache.getKafkaSwagger(), customServiceManager.getClasses(), DocTypeEnum.CUSTOM_TOKEN);
+        return getApiList(swaggerDocCache.getCustomTokenSwagger(), customServiceManager.getClasses(), DocTypeEnum.CUSTOM_TOKEN);
     }
 
     @GetMapping(value = "/event-listener/resources",
             produces = {"application/json; charset=utf-8", HAL_MEDIA_TYPE})
     @ApiOperation("获取listener swagger数据")
     public ResponseEntity<Json> getEventListenerSwagger() throws JsonProcessingException {
-        return getApiList(swaggerDocCache.getKafkaSwagger(), eventListenerManager.getClasses(), DocTypeEnum.EVENT_LISTENER);
+        return getApiList(swaggerDocCache.getEventListenerSwagger(), eventListenerManager.getClasses(), DocTypeEnum.EVENT_LISTENER);
     }
 
 

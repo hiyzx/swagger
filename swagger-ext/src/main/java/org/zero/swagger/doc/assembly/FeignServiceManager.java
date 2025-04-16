@@ -32,7 +32,7 @@ public class FeignServiceManager extends AbstractBeanManager {
                 Object bean = entry.getValue();
                 Class<?> targetClass = Class.forName(className);
                 for (Method method : targetClass.getDeclaredMethods()) {
-                    String methodName = String.format("%s/%S", className, method.getName());
+                    String methodName = String.format("%s/%s", className, method.getName());
                     methodMap.put(methodName, method);
                     objectMap.put(className, bean);
                     classes.add(targetClass);

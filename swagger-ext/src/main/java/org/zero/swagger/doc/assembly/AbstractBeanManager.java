@@ -5,7 +5,6 @@ import lombok.Data;
 import org.springframework.aop.framework.AopProxyUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -18,9 +17,9 @@ import java.util.*;
 @Data
 public abstract class AbstractBeanManager {
 
-    protected Set<Class<?>> classes = new HashSet<>();
-    protected Map<String, Method> methodMap = new HashMap<>();
-    protected Map<String, Object> objectMap = new HashMap<>();
+    protected Set<Class<?>> classes = null;
+    protected Map<String, Method> methodMap = null;
+    protected Map<String, Object> objectMap = null;
 
     public abstract void initClass();
 
@@ -49,7 +48,6 @@ public abstract class AbstractBeanManager {
     }
 
 
-    @PostConstruct
     public void init(List<Class<? extends Annotation>> annotationClasses) {
         classes = new HashSet<>();
         methodMap = new HashMap<>();

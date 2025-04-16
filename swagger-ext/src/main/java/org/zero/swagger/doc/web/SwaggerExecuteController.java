@@ -104,7 +104,7 @@ public class SwaggerExecuteController {
         Map<String, String> parameterMap = parseMapParameters(requestBody);
         parameters.addAll(parameterMap.values());
         Parameter[] methodParameters = method.getParameters();
-        Type[] genericExceptionTypes = method.getGenericExceptionTypes();
+        Type[] genericExceptionTypes = method.getGenericParameterTypes();
         Object[] args = new Object[methodParameters.length];
 
         for (int i = 0; i < methodParameters.length; i++) {
@@ -124,7 +124,7 @@ public class SwaggerExecuteController {
 
     private void setXxlJobContext(HttpServletRequest request) throws IOException {
         String jobParam = HttpUtil.getString(request.getInputStream(), StandardCharsets.UTF_8, false);
-        XxlJobContext xxlJobContext = new XxlJobContext(0L, jobParam, "", 0, 0);
+        XxlJobContext xxlJobContext = new XxlJobContext(0L, jobParam, "", 0, 1);
         XxlJobContext.setXxlJobContext(xxlJobContext);
     }
 
