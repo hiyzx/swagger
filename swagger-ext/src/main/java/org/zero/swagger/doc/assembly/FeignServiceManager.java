@@ -11,8 +11,8 @@ import java.util.HashSet;
 import java.util.Map;
 
 /**
- * @author 叶招兴
- * @description
+ * @author 水寒
+ * @description 加载feign配置
  * @since 2025/3/11
  */
 @Component

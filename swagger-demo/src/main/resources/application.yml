@@ -1,0 +1,28 @@
+# ========== SpringDoc OpenAPI 3 ==========
+springdoc:
+  packages-to-scan: org.zero.swagger.demo.controller
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    urls:
+      - name: default  # 显示在下拉框中的名称
+        url: /v3/api-docs   # 默认指向本服务的文档
+      - name: xxl-job
+        url: /swagger-ext/xxl/resources
+      - name: kafka
+        url: /swagger-ext/kafka/resources
+      - name: feign
+        url: /swagger-ext/feign/resources
+      - name: custom
+        url: /swagger-ext/custom/resources
+      - name: event-listener
+        url: /swagger-ext/event-listener/resources
+
+# Knife4j 增强文档（提供 doc.html）
+knife4j:
+  enable: true

@@ -3,7 +3,7 @@ package org.zero.swagger.doc.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author 叶招兴
+ * @author 水寒
  * @description
  * @since 2025/3/11
  */

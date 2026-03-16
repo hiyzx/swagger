@@ -7,22 +7,27 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.xxl.job.core.context.XxlJobContext;
 import io.swagger.annotations.Api;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 import org.zero.swagger.doc.assembly.*;
-import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ * @author 水寒
+ * @since  2026/3/17
+ * @description 调度接口
+ */
 @RestController
 @RequestMapping({"/swagger-ext", "/swagger-ext-token"})
 @Api(tags = "调度接口")
@@ -203,8 +208,9 @@ public class SwaggerExecuteController {
         if (value.startsWith("{")) {
             return JSONUtil.toBean(value, paramType);
         } else if (value.startsWith("[")) {
-            ParameterizedTypeImpl genericParameterTypeImpl = (ParameterizedTypeImpl) genericParameterType;
-            Class<?> actualClass = (Class<?>) genericParameterTypeImpl.getActualTypeArguments()[0];
+            Type actualType = (genericParameterType instanceof ParameterizedType)
+                    ? ((ParameterizedType) genericParameterType).getActualTypeArguments()[0] : Object.class;
+            Class<?> actualClass = (actualType instanceof Class) ? (Class<?>) actualType : Object.class;
             List<?> list = JSONUtil.toList(value, actualClass);
             if (paramType.isAssignableFrom(Set.class)) {
                 return new HashSet<>(list);

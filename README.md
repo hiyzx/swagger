@@ -28,25 +28,29 @@ Swagger围绕着OpenAPI规范，提供了一套设计、构建、文档化rest a
 
 ```xml
 <dependency>
-     <groupId>org.zero.swagger</groupId>
-     <artifactId>swagger-ext</artifactId>
-     <version>1.0-SNAPSHOT</version>
+    <groupId>org.zero.swagger</groupId>
+    <artifactId>swagger-ext</artifactId>
+    <version>1.0-SNAPSHOT</version>
 </dependency>
-<!-- 这个建议也引用一下，新的ui界面，更方便一点 -->
+
+<!-- SpringDoc OpenAPI 3（与 Knife4j 4.5 兼容需 ≤2.3.x，2.4+ 将 getGroupConfigs 改为 Set 会报 NoSuchMethodError） -->
 <dependency>
-      <groupId>com.github.xiaoymin</groupId>
-      <artifactId>knife4j-spring-boot-starter</artifactId>
-      <version>3.0.3</version>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.3.0</version>
+</dependency>
+<!-- Knife4j 增强 UI，提供 doc.html -->
+<dependency>
+    <groupId>com.github.xiaoymin</groupId>
+    <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+    <version>4.5.0</version>
 </dependency>
 ```
 
 ### 添加配置
 
-如果原本能正常访问swagger，这个配置就不用加。
-
 ```properties
-# 是否开启swagger
-swagger.enabled=true
+# 参考 application.yml, 按需配置
 ```
 
 ### 使用

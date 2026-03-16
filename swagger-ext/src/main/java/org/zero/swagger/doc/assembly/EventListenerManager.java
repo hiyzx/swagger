@@ -7,8 +7,8 @@ import org.springframework.transaction.event.TransactionalEventListener;
 import java.util.Arrays;
 
 /**
- * @author 叶招兴
- * @description
+ * @author 水寒
+ * @description 加载spring事件
  * @since 2025/3/11
  */
 @Component

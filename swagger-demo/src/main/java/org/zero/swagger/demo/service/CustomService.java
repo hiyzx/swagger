@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 import org.zero.swagger.doc.annotation.SwaggerTestService;
 
 /**
- * @author 叶招兴
- * @description
+ * @author 水寒
+ * @description 自定义方法
  * @since 2025/4/16
  */
 @Component

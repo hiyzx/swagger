@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 
 /**
- * @author 叶招兴
- * @description
+ * @author 水寒
+ * @description 加载kafka消费者
  * @since 2025/3/11
  */
 @Component

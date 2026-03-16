@@ -1,6 +1,5 @@
 package org.zero.swagger.doc.reader;
 
-import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.core.PrioritizedParameterNameDiscoverer;
 import org.springframework.core.StandardReflectionParameterNameDiscoverer;
@@ -11,8 +10,6 @@ public final class NameDiscover {
 
     static {
         parameterNameDiscover = new PrioritizedParameterNameDiscoverer();
-        ((PrioritizedParameterNameDiscoverer) parameterNameDiscover)
-                .addDiscoverer(new LocalVariableTableParameterNameDiscoverer());
         ((PrioritizedParameterNameDiscoverer) parameterNameDiscover)
                 .addDiscoverer(new StandardReflectionParameterNameDiscoverer());
         ((PrioritizedParameterNameDiscoverer) parameterNameDiscover)

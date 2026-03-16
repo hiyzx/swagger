@@ -4,22 +4,22 @@ import io.swagger.models.Swagger;
 import lombok.Data;
 
 /**
- * @author 叶招兴
- * @since  2025/3/11
+ * @author 水寒
  * @description
+ * @since 2025/3/11
  */
 @Data
 public class SwaggerDocCache {
 
-	private Swagger xxlSwagger;
+    private Swagger xxlSwagger;
 
-	private Swagger kafkaSwagger;
+    private Swagger kafkaSwagger;
 
-	private Swagger feignSwagger;
+    private Swagger feignSwagger;
 
-	private Swagger customSwagger;
+    private Swagger customSwagger;
 
-	private Swagger customTokenSwagger;
+    private Swagger customTokenSwagger;
 
-	private Swagger eventListenerSwagger;
+    private Swagger eventListenerSwagger;
 }
